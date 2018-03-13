@@ -1,0 +1,9 @@
+E:\MyTFSWorkSpace\WorkpackCore\DomainModelLibrary\bin\Debug\netcoreapp2.0\DomainModelLibrary.deps.json
+E:\MyTFSWorkSpace\WorkpackCore\DomainModelLibrary\bin\Debug\netcoreapp2.0\DomainModelLibrary.dll
+E:\MyTFSWorkSpace\WorkpackCore\DomainModelLibrary\bin\Debug\netcoreapp2.0\DomainModelLibrary.pdb
+E:\MyTFSWorkSpace\WorkpackCore\DomainModelLibrary\obj\Debug\netcoreapp2.0\DomainModelLibrary.csprojResolveAssemblyReference.cache
+E:\MyTFSWorkSpace\WorkpackCore\DomainModelLibrary\obj\Debug\netcoreapp2.0\DomainModelLibrary.csproj.CoreCompileInputs.cache
+E:\MyTFSWorkSpace\WorkpackCore\DomainModelLibrary\obj\Debug\netcoreapp2.0\DomainModelLibrary.AssemblyInfoInputs.cache
+E:\MyTFSWorkSpace\WorkpackCore\DomainModelLibrary\obj\Debug\netcoreapp2.0\DomainModelLibrary.AssemblyInfo.cs
+E:\MyTFSWorkSpace\WorkpackCore\DomainModelLibrary\obj\Debug\netcoreapp2.0\DomainModelLibrary.dll
+E:\MyTFSWorkSpace\WorkpackCore\DomainModelLibrary\obj\Debug\netcoreapp2.0\DomainModelLibrary.pdb
