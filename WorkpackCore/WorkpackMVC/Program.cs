@@ -18,7 +18,7 @@ namespace Workpack
                 .UseStartup<Startup>()
                 .UseApplicationInsights()
                 .UseUrls("http://localhost:5050")
-                .Build();
+                .Build(); //comment
 
             host.Run();
         }
