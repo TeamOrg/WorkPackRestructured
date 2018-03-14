@@ -64,10 +64,13 @@ export class SidebarService {
                     // tslint:disable-next-line:max-line-length
                     'ModuleID': 3, 'ModuleName': 'Project management', 'routerLink': '/projectManagement', 'ParentModuleID': 1, 'URL': '', 'AnchorClass': '', 'CountClass': '', 'SortOrder': '', 'MenuVisible': 0, 'OrderMenuHeader': 0, 'DisableManHours': 0
                 },
-
                 {
                   // tslint:disable-next-line:max-line-length
-                  'ModuleID': 4, 'ModuleName': 'Standard Repository', 'routerLink': '/stdRepository', 'ParentModuleID': 1, 'URL': '', 'AnchorClass': '', 'CountClass': '', 'SortOrder': '', 'MenuVisible': 0, 'OrderMenuHeader': 0, 'DisableManHours': 0
+                  'ModuleID': 4, 'ModuleName': 'Company management', 'routerLink': '/companySettingsManagement', 'ParentModuleID': 1, 'URL': '', 'AnchorClass': '', 'CountClass': '', 'SortOrder': '', 'MenuVisible': 0, 'OrderMenuHeader': 0, 'DisableManHours': 0
+                },
+                {
+                  // tslint:disable-next-line:max-line-length
+                  'ModuleID': 5, 'ModuleName': 'Standard Repository', 'routerLink': '/stdRepository', 'ParentModuleID': 1, 'URL': '', 'AnchorClass': '', 'CountClass': '', 'SortOrder': '', 'MenuVisible': 0, 'OrderMenuHeader': 0, 'DisableManHours': 0
                 }
             ];
 
