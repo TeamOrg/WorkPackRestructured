@@ -2,19 +2,18 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { routes } from './companySettingsManagement.routes';
+import { routes } from './miscellaneousManagement.routes';
 
 import { HotTableModule } from 'angular-handsontable';
 
 import { BlockUIModule } from 'ng-block-ui';
-import { CompanySettingsManagementComponent } from './companySettingsManagement.component';
-import { TaskTypesComponent } from './taskTypes/taskTypes.component';
+import { MiscellaneousManagement } from './miscellaneousManagement.component';
+import { MaterialDataBankComponent } from './materialDatabank/materialDatabank.component';
 
 const components = [
-  CompanySettingsManagementComponent,
-  TaskTypesComponent
-];
-
+  MiscellaneousManagement,
+  MaterialDataBankComponent
+]
 @NgModule({
   imports: [
     CommonModule,
@@ -31,4 +30,4 @@ const components = [
     ...components,
   ]
 })
-export class CompanySettingsManagementModule { }
+export class MiscellaneousManagementModule { }

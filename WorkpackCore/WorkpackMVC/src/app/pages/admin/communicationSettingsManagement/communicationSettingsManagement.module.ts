@@ -2,17 +2,17 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { routes } from './companySettingsManagement.routes';
+import { routes } from './communicationSettingsManagement.routes';
 
 import { HotTableModule } from 'angular-handsontable';
 
 import { BlockUIModule } from 'ng-block-ui';
-import { CompanySettingsManagementComponent } from './companySettingsManagement.component';
-import { TaskTypesComponent } from './taskTypes/taskTypes.component';
+import { CommunicationSettingsManagement } from './communicationSettingsManagement.component';
+import { ExternalContactsComponent } from './externalContacts/externalContacts.component';
 
 const components = [
-  CompanySettingsManagementComponent,
-  TaskTypesComponent
+  CommunicationSettingsManagement,
+  ExternalContactsComponent
 ];
 
 @NgModule({
@@ -31,4 +31,4 @@ const components = [
     ...components,
   ]
 })
-export class CompanySettingsManagementModule { }
+export class CommunicationSettingsManagementModule { }
