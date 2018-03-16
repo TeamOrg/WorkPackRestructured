@@ -71,7 +71,8 @@ export class DepartmentComponent implements OnInit {
     }
 
     HtLoadData(vData) {
-        debugger;
+      debugger;
+      console.log(this.data);
         this.data = vData.filter(function (e) { return e && e.DepartmentName });
         this.data.push([]);
         this.colWidths = [45, 45, 10];

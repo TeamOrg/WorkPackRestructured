@@ -6,5 +6,5 @@ import { RouterModule, Routes } from '@angular/router';
   templateUrl: './companySettingsManagement.component.html',
   styleUrls: ['./companySettingsManagement.component.css']
 })
-export class companySettingsManagementComponent {
+export class CompanySettingsManagementComponent {
 }
