@@ -1,4 +1,4 @@
-﻿<div class="page-header navbar navbar-fixed-top" *ngIf="(authentication$ | async)">
+<div class="page-header navbar navbar-fixed-top" *ngIf="(authStatus$ | async)">
   <div class="page-header-inner ">
     <div class="page-logo">
       <a [routerLink]="['/dashboard']">
@@ -185,7 +185,7 @@
                 </a>
               </li>
               <li>
-                <a href="page_user_login_1.html">
+                <a (click)="logout()">
                   <i class="icon-key"></i> Log Out
                 </a>
               </li>

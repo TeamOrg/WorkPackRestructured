@@ -8,7 +8,6 @@ import { StoreModule } from '@ngrx/store';
 import { ToasterModule } from 'angular2-toaster';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { BlockUIModule } from 'ng-block-ui';
-import { SelectModule } from 'ng2-select';
 
 // Components
 import { AppComponent } from './app.component';
@@ -48,7 +47,6 @@ import 'rxjs/add/observable/of';
             maxAge: 25, //  Retains last 25 states
         }),
         RouterModule.forRoot(routes),
-        SelectModule,
         ToasterModule,
         ServiceModule,
         AppEffectsModule,

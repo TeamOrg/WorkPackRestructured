@@ -69,7 +69,6 @@ export class UserComponent implements OnInit {
 
     this.store.select(fromRoot.getOperationResult).subscribe(
       data => {
-        debugger;
         if (data.MessageType == "E") {
           this.message.showMessage(data.message);
         }
@@ -91,7 +90,6 @@ export class UserComponent implements OnInit {
   }
 
   onSubmit() {
-    debugger;
     if (this.userForm.valid) {
       const formValues = Object.assign({}, this.userForm.value, {
         userRole: this.userForm.value.userRole.map((s, i) => {
@@ -134,7 +132,6 @@ export class UserComponent implements OnInit {
     let reportingTo = '0';
     let isActive = false;
 
-    debugger;
 
     if (user) {
       firstName = user.FirstName ? user.FirstName : '';
@@ -162,7 +159,6 @@ export class UserComponent implements OnInit {
   }
 
   onFileChange(event) {
-    debugger;
     let files = event.target.files;
     this.saveFiles(files);
   }

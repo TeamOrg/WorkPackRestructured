@@ -24,6 +24,7 @@ export class LoginComponent implements OnInit {
     private router: Router) {
     this.authToken$ = this.store.select(fromRoot.getToken);
     this.authStatus$ = this.store.select(fromRoot.getAuthStatus);
+    debugger;
     this.redirectIfUserLoggedIn();
   }
 
