@@ -11,9 +11,11 @@ namespace DomainModelLibrary
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class ProjectsAdmin
     {
+        [Key]
         public int ProjectsAdminID { get; set; }
         public int ProjectID { get; set; }
         public int UserID { get; set; }

@@ -11,9 +11,11 @@ namespace DomainModelLibrary
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class ProjectStatu
     {
+        [Key]
         public int ProjectStatusID { get; set; }
         public string ProjectStatus { get; set; }
     }

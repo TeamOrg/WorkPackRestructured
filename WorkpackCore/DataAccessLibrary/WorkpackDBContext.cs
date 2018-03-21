@@ -15,11 +15,15 @@ namespace DataAccessLibrary
 
         public DbSet<User> User { get; set; }
         public DbSet<Project> Projects { get; set; }
+        public DbSet<ProjectsAdmin> ProjectsAdmin { get; set; }
+        public DbSet<ProjectTypes> ProjectTypes { get; set; }
+        public DbSet<ProjectStatu> ProjectStatu { get; set; }
         public DbSet<Priority> Priority { get; set; }
         public DbSet<Currency> Currency { get; set; }
         public DbSet<Role> Role { get; set; }
         public DbSet<Department> Department { get; set; }
         public DbSet<Designation> Designation { get; set; }
+        public DbSet<SimilarProject> SimilarProject { get; set; }
         public DbSet<UserRole> UserRole { get; set; }
         public DbSet<usp_getUserList_Result> usp_getUserList_Result { get; set; }
         public DbSet<usp_getUserRoleAssigned_Result> usp_getUserRoleAssigned_Result { get; set; }
@@ -60,9 +64,13 @@ namespace DataAccessLibrary
         {
             modelBuilder.Entity<User>().ToTable("Users");
             modelBuilder.Entity<Project>().ToTable("Project");
+            modelBuilder.Entity<ProjectsAdmin>().ToTable("ProjectsAdmin");
+            modelBuilder.Entity<ProjectTypes>().ToTable("ProjectType");
+            modelBuilder.Entity<ProjectStatu>().ToTable("ProjectStatus");
             modelBuilder.Entity<Priority>().ToTable("Priority");
             modelBuilder.Entity<Currency>().ToTable("Currency");
             modelBuilder.Entity<Role>().ToTable("Role");
+            modelBuilder.Entity<SimilarProject>().ToTable("SimilarProject");
             modelBuilder.Entity<Designation>().ToTable("Designation");
             modelBuilder.Entity<Department>().ToTable("Department");
           
