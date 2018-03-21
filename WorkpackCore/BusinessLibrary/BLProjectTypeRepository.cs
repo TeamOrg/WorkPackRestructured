@@ -9,38 +9,31 @@ namespace BusinessLibrary
     public class BLProjectTypeRepository : IBLProjectTypeRepository
     {
         
-
-
         private readonly WorkpackDBContext _context;
-        private readonly IGenericDataRepository<ProjectType> _projecttypeRepository;
+        private readonly IGenericDataRepository<ProjectTypes> _projecttypeRepository;
 
-        public BLProjectTypeRepository(WorkpackDBContext context, IGenericDataRepository<ProjectType> projecttypeRepository)
+        public BLProjectTypeRepository(WorkpackDBContext context, IGenericDataRepository<ProjectTypes> projecttypeRepository)
         {
             _context = context;
             _projecttypeRepository = projecttypeRepository;
         }
-
-
-
-
-
-
-
-        public IList<ProjectType> GetAllProjectTypes()
+        
+        public IList<ProjectTypes> GetAllProjectTypes()
         {
-            return _projecttypeRepository.GetAll();
+            List<ProjectTypes> lst = (from q in _context.ProjectTypes select q).ToList<ProjectTypes>();
+            return lst;
         }
         //public System.Data.DataTable LINQToDataTable(IEnumerable<ProjectType> enumerable)
         //{
         //    return _projecttypeRepository.LINQToDataTable(enumerable);
         //}
-        public ProjectType GetProjectTypeByID(Int32 projecttypeID)
+        public ProjectTypes GetProjectTypeByID(Int32 projecttypeID)
         {
             //Func<T, bool> where, params Expression<Func<T, object>>[] navigationProperties
             return _projecttypeRepository.GetSingle(d => d.ProjectTypeID == projecttypeID);
             //include related employees
         }
-        public void AddProjectType(params ProjectType[] projecttype)
+        public void AddProjectType(params ProjectTypes[] projecttype)
         {
             /* Validation and error handling omitted */
             try
@@ -56,7 +49,7 @@ namespace BusinessLibrary
                 }
             }
         }
-        public void UpdateProjectType(params ProjectType[] projecttype)
+        public void UpdateProjectType(params ProjectTypes[] projecttype)
         {
             /* Validation and error handling omitted */
             try
@@ -72,7 +65,7 @@ namespace BusinessLibrary
                 }
             }
         }
-        public void RemoveProjectType(params ProjectType[] projecttype)
+        public void RemoveProjectType(params ProjectTypes[] projecttype)
         {
             /* Validation and error handling omitted */
             try
@@ -89,12 +82,12 @@ namespace BusinessLibrary
                 //}
             }
         }
-        public Boolean CheckDuplicate(ProjectType projecttype, Boolean IsInsert)
+        public Boolean CheckDuplicate(ProjectTypes projecttype, Boolean IsInsert)
         {
             Boolean Result = true;
             try
             {
-                var c = _projecttypeRepository.GetSingle(p => p.ProjectType1.ToUpper() == projecttype.ProjectType1.ToUpper());
+                var c = _projecttypeRepository.GetSingle(p => p.ProjectType.ToUpper() == projecttype.ProjectType.ToUpper());
                 if (!IsInsert)
                 {
                     if (c == null)
@@ -122,9 +115,9 @@ namespace BusinessLibrary
             }
             return Result;
         }
-        public IList<ProjectType> GetProjectTypeList(ProjectType projecttype)
+        public IList<ProjectTypes> GetProjectTypeList(ProjectTypes projecttype)
         {
-            IList<ProjectType> fetchedProjectType = new List<ProjectType>();
+            IList<ProjectTypes> fetchedProjectType = new List<ProjectTypes>();
             try
             {
                 //using (var Context = new Cubicle_EntityEntities())

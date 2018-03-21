@@ -11,9 +11,11 @@ namespace DomainModelLibrary
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Priority
     {
+        [Key]
         public int PriorityID { get; set; }
         public string PriorityName { get; set; }
         public Nullable<int> Rank { get; set; }

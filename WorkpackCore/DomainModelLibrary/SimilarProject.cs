@@ -11,9 +11,11 @@ namespace DomainModelLibrary
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class SimilarProject
     {
+        [Key]
         public int ID { get; set; }
         public Nullable<int> ProjectID { get; set; }
         public Nullable<int> SimilarProjectID { get; set; }

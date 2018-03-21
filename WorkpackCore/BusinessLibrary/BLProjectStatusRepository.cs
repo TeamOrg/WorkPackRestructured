@@ -23,7 +23,7 @@ namespace BusinessLibrary
 
         public IList<ProjectStatu> GetAllProjectStatus()
         {
-            return _projectStatusRepository.GetAll();
+            return (from q in _context.ProjectStatu select q).ToList<ProjectStatu>();
         }
         public ProjectStatu GetProjectStatusByID(Int32 departmentID)
         {

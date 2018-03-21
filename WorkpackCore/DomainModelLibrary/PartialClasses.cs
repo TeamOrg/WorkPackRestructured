@@ -1131,7 +1131,7 @@ namespace DomainModelLibrary
         public EntityState EntityState { get; set; }
     }
    
-    public partial class ProjectType : IEntity
+    public partial class ProjectTypes : IEntity
     {
         [NotMapped]
         public EntityState EntityState { get; set; }

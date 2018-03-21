@@ -11,11 +11,13 @@ namespace DomainModelLibrary
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class ProjectType
+    using System.ComponentModel.DataAnnotations;
+
+    public partial class ProjectTypes
     {
+        [Key]
         public int ProjectTypeID { get; set; }
-        public string ProjectType1 { get; set; }
+        public string ProjectType { get; set; }
         public string ProjectTypeCode { get; set; }
     }
 }
