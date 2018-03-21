@@ -1,4 +1,4 @@
-﻿import { Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Actions, Effect } from '@ngrx/effects';
 import { Observable } from 'rxjs/Observable';
 import { Action } from './../reducers/action.interface';
@@ -16,6 +16,7 @@ export class ProjectTypeEffects {
     get_all_projectTypes$: Observable<Action> = this.actions$
         .ofType(ProjectTypeAction.ActionTypes.GET_PROJECTTYPE_LIST)
         .switchMap((action: Action) => {
+          debugger;
             return this.projectTypeService.list();
         })
         .map((data) => {

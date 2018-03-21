@@ -4,8 +4,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { routes } from './userManagement.routes';
 
-import { SelectModule } from 'ng2-select';
-
 import { HotTableModule } from 'angular-handsontable';
 
 
@@ -36,7 +34,6 @@ const components = [
     FormsModule,
     RouterModule.forChild(routes),
     HotTableModule,
-    SelectModule,
     BlockUIModule,
     ReactiveFormsModule
   ],

@@ -20,7 +20,7 @@ export interface State {
 const initialState = {
   user: new UserProfile(),
   auth: localStorage.getItem('user') ? true : null,
-  token: localStorage.getItem('access_token'),
+  token: null,
   isLoading: false,
   OperationResult: {},
   notification: [],
@@ -52,8 +52,9 @@ export function reducer(state = initialState, action: Action): State {
     case userAuthActions.SERVER_LOGOUT_SUCCESS: {
       return Object.assign({}, state, {
         user: initialState.user,
+        token: null,
         auth: false
-      })
+      });
     }
     case userAuthActions.GET_HEADER_NOTIFICATION_SUCCESS: {
       return Object.assign({}, state, {
@@ -114,6 +115,9 @@ export function getLoggedInUserId(state: State): string {
 }
 
 export function getAuthStatus(state: State): any {
+  if (localStorage.getItem("token")) {
+    return true;
+  }
   return state.auth;
 }
 
