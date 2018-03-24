@@ -698,6 +698,24 @@ namespace BusinessLibrary
             return list;
         }
 
+
+        
+
+        public List<Android_usp_GetProjectDetails_Result> GetDashboardProjects(int userID, string searchText, int startIndex, int endIndex, int projectStatus)
+        {
+            List<Android_usp_GetProjectDetails_Result> lst = null;
+            try
+            {
+              
+                lst = _context.usp_GetProjectDetails(userID, searchText, startIndex,endIndex,projectStatus).ToList<Android_usp_GetProjectDetails_Result>();
+            }
+            catch (Exception ex)
+            {
+                //bool rethrow = BusinessLogicExceptionHandler.HandleException(ref ex);
+                throw ex;
+            }
+            return lst;
+        }
         public List<usp_searchUserProject_Result> searchUserClosedProject(Project project, Int32 UserID, int ProjectStatusArchived)
         {
 //            ProjectStatusClosed = Convert.ToInt32(Common.ProjectStatus.Closed);

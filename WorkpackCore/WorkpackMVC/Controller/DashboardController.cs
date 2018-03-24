@@ -48,7 +48,33 @@ namespace WorkpackMVC
       }
       return lst;
     }
-    
+
+
+
+    [HttpGet]
+    [ActionName("getProjectByUserID")]
+    public List<Android_usp_GetProjectDetails_Result> GetDashboardProjects(int userID, string searchText, int startIndex,int endIndex, int projectStatus)
+    {
+      List<Android_usp_GetProjectDetails_Result> lst = null;
+      try
+      {
+        lst = _projectcreationRepository.GetDashboardProjects(userID, searchText, startIndex, endIndex, projectStatus).ToList<Android_usp_GetProjectDetails_Result>();
+      }
+      catch (Exception e)
+      {
+        // return e.ToString();
+      }
+      return lst;
+    }
+
+
+
+
+
+
+
+
+
     [HttpGet]
     [ActionName("getMilestoneTaskByProjectID")]
     public List<usp_getProjectMilestoneTask_Result> getMilestoneTaskByProjectID(string ProjectID, string CompanyId)
