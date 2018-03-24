@@ -38,7 +38,51 @@ namespace DataAccessLibrary
         public DbSet<usp_getDeliverableTaskByUserID_Result> usp_getDeliverableTaskByUserID_Result { get; set; }
         public DbSet<usp_getTaskTypeWiseProgressByTaskID_Result> usp_getTaskTypeWiseProgressByTaskID_Result { get; set; }
 
-        
+        public DbSet<Android_usp_GetProjectDetails_Result> Android_usp_GetProjectDetails_Result { get; set; }
+
+
+
+
+
+
+
+
+        public virtual IQueryable<Android_usp_GetProjectDetails_Result> usp_GetProjectDetails(Nullable<int> userID, string searchText, 
+            Nullable<int> startIndex, Nullable<int> endIndex, Nullable<int> projectStatus)
+        {
+            var userIDParameter = userID.HasValue ?
+                new SqlParameter("userID", userID) :
+                new SqlParameter("userID", typeof(int));
+
+            var searchTextIDParameter = searchText != null ?
+                 new SqlParameter("searchText", searchText) :
+                 new SqlParameter("searchText", typeof(string));
+
+            var startIndexParameter = startIndex.HasValue ?
+                new SqlParameter("startIndex", startIndex) :
+                new SqlParameter("startIndex", typeof(int));
+
+          
+
+            var endIndexParameter = endIndex.HasValue ?
+                new SqlParameter("endIndex", endIndex) :
+                new SqlParameter("endIndex", typeof(int));
+
+            var projectStatusParameter = projectStatus.HasValue ?
+                new SqlParameter("ProjectStatus", projectStatus) :
+                new SqlParameter("ProjectStatus", typeof(int));        
+
+            return Android_usp_GetProjectDetails_Result
+                .FromSql("EXECUTE usp_GetProjectDetails @userID, @searchText, @startIndex,@endIndex, @ProjectStatus", userIDParameter, searchTextIDParameter, startIndexParameter, endIndexParameter, projectStatusParameter)
+                .AsNoTracking();
+        }
+
+
+
+
+
+
+
 
 
         public virtual IQueryable<usp_searchUserProject_Result> usp_searchUserProject(Nullable<int> projectType, Nullable<int> projectStage, Nullable<int> projectCode, string clientProjectNo, Nullable<int> clientAssetID, Nullable<int> projectStatus, Nullable<System.DateTime> startDate, Nullable<System.DateTime> endDate, Nullable<int> projectLeader, Nullable<int> userID, Nullable<int> projectStatusArchived)

@@ -55,6 +55,10 @@ namespace BusinessLibrary
         List<usp_searchUserProject_Result> searchUserClosedProject(Project project, int UserID, int ProjectStatusArchived);
         List<usp_searchUserProject_Result> searchUserEstimationProject(Project project, int UserID, int ProjectStatusArchived);
         List<usp_searchUserProject_Result> searchUserProject(Project project, int UserID, int ProjectStatusArchived);
+
+        List<Android_usp_GetProjectDetails_Result> GetDashboardProjects(int userID, string searchText, int startIndex, int endIndex, int projectStatus);
+
+
         void UpdateProject(params Project[] projects);
         bool UpdateProjectStatus(int ProjectID, string status);
     }
