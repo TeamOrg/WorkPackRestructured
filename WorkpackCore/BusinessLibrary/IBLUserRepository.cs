@@ -28,6 +28,7 @@ namespace BusinessLibrary
         List<object> GetNormsFieldData(string key);
         List<usp_getDynamicAutocompleteData_Result> GetNormsFieldData(string CompanyId, string key, string tableName, string columnName, string filter, string filterValue = "");
         List<usp_getPlanningEnginner_Result> getPlanningEnginner();
+        List<DropdownData> GetUsersForProjectsAdminAndMembers(int companyId);
         List<object> GetResourceManagerRoleUsers(int CompanyId, int DeptID);
         User GetuserByEmailID(string userID);
         User GetUserByEmailID(string EmailID, int UserID);

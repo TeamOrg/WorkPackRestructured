@@ -44,6 +44,18 @@ namespace BusinessLibrary
 
         }
 
+        public List<DropdownData> GetUsersForProjectsAdminAndMembers(int companyId)
+        {
+            List<DropdownData> lst= ( from q in _context.User
+                                      where q.CompanyId == companyId && q.Status == "A"
+                                      select new DropdownData
+                                      {
+                                          Id = q.UserID,
+                                          Value = q.FirstName + " " + q.LastName
+                                      }).ToList<DropdownData>();
+            return lst;
+        }
+
         //public List<object> GetAllWorkpackExternalusers()
         //{
         //    List<object> list = null;
@@ -335,9 +347,9 @@ namespace BusinessLibrary
             return lst;
         }
 
-        public static List<ExUser> GetExternalusers()
+        public static List<ExUsers> GetExternalusers()
         {
-            List<ExUser> list = null;
+            List<ExUsers> list = null;
             try
             {
                 ////using (var db = new Cubicle_EntityEntities())
@@ -352,9 +364,9 @@ namespace BusinessLibrary
         }
 
         //ExUserTable Methods
-        public static List<ExUser> GetClientEmailIds(string email)
+        public static List<ExUsers> GetClientEmailIds(string email)
         {
-            List<ExUser> list = null;
+            List<ExUsers> list = null;
             try
             {
                 ////using (var db = new Cubicle_EntityEntities())

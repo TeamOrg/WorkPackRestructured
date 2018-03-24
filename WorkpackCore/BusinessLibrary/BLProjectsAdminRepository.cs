@@ -20,10 +20,6 @@ namespace BusinessLibrary
             _projectsAdmin = projectsAdmin;
         }
 
-
-
-
-
         public IList<ProjectsAdmin> GetAllProjectsAdmin()
         {
             return _projectsAdmin.GetAll();

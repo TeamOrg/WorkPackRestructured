@@ -1,4 +1,4 @@
-﻿
+
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { EffectsModule } from '@ngrx/effects';
@@ -17,24 +17,27 @@ import { ClientEffects } from "./client.effects";
 import { ProjectStatusEffects } from "./projectStatus.effects";
 import { ProjectTemplateEffects } from "./projectTemplate.effects";
 import { ExUserEffects } from './exUser.effects';
+import { ProjectEffects } from './project.effects';
+
 
 
 @NgModule({
-    imports: [
-        EffectsModule.forRoot([
-            UserAuthEffects,
-            MenuEffects,
-            DepartmentEffects,
-            RoleEffects,
-            DesignationEffects,
-            UserEffects,
-            ProjectTypeEffects,
-            ProjectStatusEffects,
-            PriorityEffects,
-            ClientEffects,
-            ProjectTemplateEffects,
-            ExUserEffects
-        ])
-    ]
+  imports: [
+    EffectsModule.forRoot([
+      UserAuthEffects,
+      MenuEffects,
+      DepartmentEffects,
+      RoleEffects,
+      DesignationEffects,
+      UserEffects,
+      ProjectTypeEffects,
+      ProjectStatusEffects,
+      PriorityEffects,
+      ClientEffects,
+      ProjectTemplateEffects,
+      ExUserEffects,
+      ProjectEffects
+    ])
+  ]
 })
 export class AppEffectsModule { }

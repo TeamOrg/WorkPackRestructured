@@ -11,11 +11,13 @@ namespace DomainModelLibrary
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class ExUser
+    using System.ComponentModel.DataAnnotations;
+
+    public partial class ExUsers
     {
+        [Key]
         public int ExUserID { get; set; }
-        public string ExUser1 { get; set; }
+        public string ExUser { get; set; }
         public Nullable<int> CompanyId { get; set; }
         public string Name { get; set; }
         public string CompanyName { get; set; }

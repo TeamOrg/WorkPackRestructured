@@ -21,9 +21,7 @@ namespace WorkpackMVC
         private readonly IBLProjectCreationRepository _projectcreationRepository;
         private readonly IBLTaskListRepository _tasklistRepository;
         private readonly IBLDeliverableListRepository _deliverableListRepository;
-       private readonly IBLTaskMilestoneTargetDates _taskMilestoneTargetDatesRepository;
-
-
+        private readonly IBLTaskMilestoneTargetDates _taskMilestoneTargetDatesRepository;
 
     public DashboardController(IBLTaskListRepository tasklist, IBLProjectCreationRepository projectcreation, IBLDeliverableListRepository deliverableList, IBLTaskMilestoneTargetDates taskMilestoneTargetDates, IMapper mapper)
     {
@@ -33,12 +31,11 @@ namespace WorkpackMVC
       _deliverableListRepository = deliverableList;
       _taskMilestoneTargetDatesRepository = taskMilestoneTargetDates;
     }
-
-
+    
     //project dashboard function
     [HttpGet]
     [ActionName("getProjectByUserID")]
-    public List<usp_searchUserProject_Result> searchUserClosedProject(Project project, Int32 UserID, int ProjectStatusArchived)
+    public List<usp_searchUserProject_Result> searchUserProject(Project project, Int32 UserID, int ProjectStatusArchived)
     {
       List<usp_searchUserProject_Result> lst = null;
       try
@@ -86,9 +83,8 @@ namespace WorkpackMVC
       return result;
     }
     //end project dashboard function
-
-            
-   //get task list
+                
+   //get Deliverable list
     [HttpGet]
     [ActionName("getDeliverableTaskByUserID")]
     public OperationResult getDeliverableTaskByUserID(string UserID, int Deliverablelst, string ProjectStatus)
@@ -134,9 +130,7 @@ namespace WorkpackMVC
 
       return result;
     }
-
-
-
+    
     [HttpGet]
     [ActionName("getDeliverableTaskMilestoneByProjectID")]
     public OperationResult getDeliverableTaskMilestoneByProjectID(string ProjectID, string TaskID)
@@ -175,9 +169,7 @@ namespace WorkpackMVC
 
       return result;
     }
-
-
-
+    
   }
 
 

@@ -10,7 +10,7 @@
 namespace DomainModelLibrary
 {
     using System;
-    
+    using System.ComponentModel.DataAnnotations;
     public partial class GetPrediccessorTask_Result
     
     {

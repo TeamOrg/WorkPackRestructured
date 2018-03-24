@@ -9,13 +9,16 @@
 
 namespace DomainModelLibrary
 {
+  
     using System;
-    
+    using System.ComponentModel.DataAnnotations;
     public partial class usp_searchUserProject_Result
     
     {
-        public string ProjectName { get; set; }
+        [Key]
         public int ProjectID { get; set; }
+        public string ProjectName { get; set; }
+        
         public string ProjectCode { get; set; }
         public string ProjectStatus { get; set; }
         public string ProjectStatusName { get; set; }

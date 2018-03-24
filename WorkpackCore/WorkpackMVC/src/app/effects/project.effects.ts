@@ -1,4 +1,4 @@
-﻿import { Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Actions, Effect } from '@ngrx/effects';
 import { Action } from './../reducers/action.interface';
 import { Observable } from 'rxjs/Observable';
@@ -18,6 +18,7 @@ export class ProjectEffects {
             return this.projectService.list();
         })
         .map((data) => {
+          debugger;
             return new ProjectAction.GetAllProjectSuccessAction(data);
         });
 

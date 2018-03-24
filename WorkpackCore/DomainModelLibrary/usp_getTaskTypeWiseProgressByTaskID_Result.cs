@@ -10,7 +10,8 @@
 namespace DomainModelLibrary
 {
     using System;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class usp_getTaskTypeWiseProgressByTaskID_Result
     
     {

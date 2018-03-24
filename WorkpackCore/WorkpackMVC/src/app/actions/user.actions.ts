@@ -11,6 +11,8 @@ export const ActionTypes = {
   DELETE_USER_SUCCESS: 'Delete user success',
   GET_ALL_USERS: 'Get all users',
   GET_ALL_USERS_SUCCESS: 'Get all users success',
+  GET_USERS_PROJECTADMIN_PROJECTMEMBER: 'Get all users for project admin and Project members',
+  GET_USERS_PROJECTADMIN_PROJECTMEMBER_SUCCESS: 'Get all users for project admin and Project members success',
   START_LOADER: 'Start loader for User',
   STOP_LOADER: 'Stop loader for user',
 };
@@ -54,5 +56,15 @@ export class UpdateUserAction implements Action {
 export class UpdateUserSuccessAction implements Action {
   type = ActionTypes.EDIT_USER_SUCCESS;
   constructor(public payload: User) { }
+}
+
+export class GetUsersForProjectAdminAndMember implements Action {
+  type = ActionTypes.GET_USERS_PROJECTADMIN_PROJECTMEMBER;
+  constructor() { }
+}
+
+export class GetUsersForProjectAdminAndMemberSuccess implements Action {
+  type = ActionTypes.GET_USERS_PROJECTADMIN_PROJECTMEMBER_SUCCESS;
+  constructor(public payload: any[]) { }
 }
 

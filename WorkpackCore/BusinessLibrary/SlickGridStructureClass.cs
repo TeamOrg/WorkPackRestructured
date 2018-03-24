@@ -95,6 +95,12 @@ namespace BusinessLibrary
         public string Name;
     }
 
+    public class DropdownData
+    {
+        public int Id;
+        public string Value;
+    }
+
     public class ProjectTaskListSlickGrid
     {
         public int id;

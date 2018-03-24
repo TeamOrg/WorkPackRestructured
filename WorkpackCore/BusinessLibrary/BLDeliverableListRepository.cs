@@ -346,11 +346,10 @@ namespace BusinessLibrary
             IList<usp_getDeliverableTaskByUserID_Result> list = null;
             try
             {
-                //using (var context = new Cubicle_EntityEntities())
-                //{
-                //    ((System.Data.Entity.Infrastructure.IObjectContextAdapter)context).ObjectContext.CommandTimeout = 0;
-                //    list = context.usp_getDeliverableTaskByUserID(Convert.ToString(UserID), TaskAssignedStatusID, Deliverablelst).ToList<usp_getDeliverableTaskByUserID_Result>();
-                //}
+                
+                  //  ((System.Data.Entity.Infrastructure.IObjectContextAdapter)_context).ObjectContext.CommandTimeout = 0;
+                    list = _context.usp_getDeliverableTaskByUserID(Convert.ToString(UserID), TaskAssignedStatusID, Deliverablelst).ToList<usp_getDeliverableTaskByUserID_Result>();
+                
             }
             catch (Exception ex)
             {

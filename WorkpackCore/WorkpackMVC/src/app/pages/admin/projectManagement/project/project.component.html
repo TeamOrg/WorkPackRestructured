@@ -164,6 +164,9 @@
             <label class="control-label">Project Admin</label>
             <select class="form-control" name="ddProjectAdmin" tabindex="13" formControlName="projectAdmin">
               <option value="0">Select</option>
+              <option *ngFor="let user of usersForProjectAdminAndProjectMember$ | async" value="{{user.Id}}">
+                {{user.Value}}
+              </option>
             </select>
             <span class="help-block">
             </span>
@@ -175,7 +178,7 @@
             <select class="form-control" name="ddExternalMembers" tabindex="14" formControlName="externalMembers">
               <option value="0">Select</option>
               <option *ngFor="let exUser of exUser$ | async" value="{{exUser.ExUserID}}">
-                {{exUser.ExUser1}}
+                {{exUser.ExUser}}
               </option>
             </select>
             <span class="help-block">
@@ -184,6 +187,19 @@
         </div>
       </div>
       <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="control-label">Project Team Member</label>
+            <select class="form-control" name="ddProjectMember" tabindex="15" formControlName="projectMember">
+              <option value="0">Select</option>
+              <option *ngFor="let user of usersForProjectAdminAndProjectMember$ | async" value="{{user.Id}}">
+                {{user.Value}}
+              </option>
+            </select>
+            <span class="help-block">
+            </span>
+          </div>
+        </div>
         <div class="col-md-6">
           <div class="form-group">
             <label class="control-label">Similar Projects</label>
@@ -197,6 +213,8 @@
             </span>
           </div>
         </div>
+      </div>
+      <div class="row">
         <div class="col-md-6">
           <div class="form-group">
             <label class="control-label">Attachments</label>

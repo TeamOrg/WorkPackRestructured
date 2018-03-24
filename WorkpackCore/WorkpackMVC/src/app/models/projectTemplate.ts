@@ -1,4 +1,4 @@
-﻿export class ProjectTemplate {
+export class NormSet {
     NormSetID: number;
     NormSetName: string;
     ClientID: number;

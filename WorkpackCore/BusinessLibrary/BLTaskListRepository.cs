@@ -4176,10 +4176,9 @@ namespace BusinessLibrary
             List<usp_getProjectMilestoneTask_Result> objTask = null;
             try
             {
-                //using (var context = new Cubicle_EntityEntities())
-                //{
-                //    objTask = context.usp_getProjectMilestoneTask(CompanyId, ProjectID).ToList<usp_getProjectMilestoneTask_Result>();
-                //}
+               
+                   objTask = _context.usp_getProjectMilestoneTask(CompanyId, ProjectID).ToList<usp_getProjectMilestoneTask_Result>();
+              
             }
             catch (Exception ex)
             {
@@ -4197,10 +4196,9 @@ namespace BusinessLibrary
             List<GetPrediccessorTask_Result> objTask = null;
             try
             {
-                //using (var context = new Cubicle_EntityEntities())
-                //{
-                //    objTask = context.GetPrediccessorTask(ProjectId, TaskId, TaskTypeId).ToList<GetPrediccessorTask_Result>();
-                //}
+               
+                   objTask = _context.GetPrediccessorTask(ProjectId, TaskId, TaskTypeId).ToList<GetPrediccessorTask_Result>();
+              
             }
             catch (Exception ex)
             {

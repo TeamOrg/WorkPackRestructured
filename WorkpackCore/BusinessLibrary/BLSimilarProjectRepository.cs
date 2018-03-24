@@ -21,13 +21,7 @@ namespace BusinessLibrary
         }
 
 
-
-
-
-
-
-
-        public IList<SimilarProject> GetAllSimilarProject()
+        public IList<SimilarProject> GetAllSimilarProject(int companyId)
         {
             return _similarProjects.GetAll();
         }

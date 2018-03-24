@@ -22,11 +22,165 @@ namespace DataAccessLibrary
         public DbSet<Currency> Currency { get; set; }
         public DbSet<Role> Role { get; set; }
         public DbSet<Department> Department { get; set; }
+        public DbSet<ExUsers> ExUser { get; set; }
+        public DbSet<NormSet> NormSet { get; set; }
         public DbSet<Designation> Designation { get; set; }
         public DbSet<SimilarProject> SimilarProject { get; set; }
         public DbSet<UserRole> UserRole { get; set; }
         public DbSet<usp_getUserList_Result> usp_getUserList_Result { get; set; }
         public DbSet<usp_getUserRoleAssigned_Result> usp_getUserRoleAssigned_Result { get; set; }
+
+
+        public DbSet<usp_searchUserProject_Result> usp_searchUserProject_Result { get; set; }
+        public DbSet<usp_getProjectMilestoneTask_Result> usp_getProjectMilestoneTask_Result { get; set; }
+        public DbSet<GetPrediccessorTask_Result> GetPrediccessorTask_Result { get; set; }
+
+        public DbSet<usp_getDeliverableTaskByUserID_Result> usp_getDeliverableTaskByUserID_Result { get; set; }
+        public DbSet<usp_getTaskTypeWiseProgressByTaskID_Result> usp_getTaskTypeWiseProgressByTaskID_Result { get; set; }
+
+        
+
+
+        public virtual IQueryable<usp_searchUserProject_Result> usp_searchUserProject(Nullable<int> projectType, Nullable<int> projectStage, Nullable<int> projectCode, string clientProjectNo, Nullable<int> clientAssetID, Nullable<int> projectStatus, Nullable<System.DateTime> startDate, Nullable<System.DateTime> endDate, Nullable<int> projectLeader, Nullable<int> userID, Nullable<int> projectStatusArchived)
+        {
+            var projectTypeParameter = projectType.HasValue ?
+                new SqlParameter("ProjectType", projectType) :
+                new SqlParameter("ProjectType", typeof(int));
+
+            var projectStageParameter = projectStage.HasValue ?
+                new SqlParameter("ProjectStage", projectStage) :
+                new SqlParameter("ProjectStage", typeof(int));
+
+            var projectCodeParameter = projectCode.HasValue ?
+                new SqlParameter("ProjectCode", projectCode) :
+                new SqlParameter("ProjectCode", typeof(int));
+
+            var clientProjectNoParameter = clientProjectNo != null ?
+                new SqlParameter("ClientProjectNo", clientProjectNo) :
+                new SqlParameter("ClientProjectNo", typeof(string));
+
+            var clientAssetIDParameter = clientAssetID.HasValue ?
+                new SqlParameter("ClientAssetID", clientAssetID) :
+                new SqlParameter("ClientAssetID", typeof(int));
+
+            var projectStatusParameter = projectStatus.HasValue ?
+                new SqlParameter("ProjectStatus", projectStatus) :
+                new SqlParameter("ProjectStatus", typeof(int));
+
+            var startDateParameter = startDate.HasValue ?
+                new SqlParameter("StartDate", startDate) :
+                new SqlParameter("StartDate", typeof(System.DateTime));
+
+            var endDateParameter = endDate.HasValue ?
+                new SqlParameter("EndDate", endDate) :
+                new SqlParameter("EndDate", typeof(System.DateTime));
+
+            var projectLeaderParameter = projectLeader.HasValue ?
+                new SqlParameter("ProjectLeader", projectLeader) :
+                new SqlParameter("ProjectLeader", typeof(int));
+
+            var userIDParameter = userID.HasValue ?
+                new SqlParameter("UserID", userID) :
+                new SqlParameter("UserID", typeof(int));
+
+            var projectStatusArchivedParameter = projectStatusArchived.HasValue ?
+                new SqlParameter("projectStatusArchived", projectStatusArchived) :
+                new SqlParameter("projectStatusArchived", typeof(int));
+
+            return usp_searchUserProject_Result
+                .FromSql("EXECUTE usp_searchUserProject @ProjectType, @ProjectStage, @ProjectCode," +
+                "@ClientProjectNo, @clientAssetID, @ProjectStatus," +
+                "@StartDate, @endDate, @projectLeader," +
+                "@userID, @projectStatusArchived"
+                , projectTypeParameter, projectStageParameter, projectCodeParameter,
+                clientProjectNoParameter, clientAssetIDParameter, projectStatusParameter,
+                startDateParameter, endDateParameter, projectLeaderParameter,
+                userIDParameter, projectStatusArchivedParameter)
+                .AsNoTracking();
+        }
+
+        public virtual IQueryable<usp_getProjectMilestoneTask_Result> usp_getProjectMilestoneTask(Nullable<int> companyId, Nullable<int> projectID)
+        {
+            var companyIdParameter = companyId.HasValue ?
+                new SqlParameter("CompanyId", companyId) :
+                new SqlParameter("CompanyId", typeof(int));
+
+            var projectIDParameter = projectID.HasValue ?
+                new SqlParameter("ProjectID", projectID) :
+                new SqlParameter("ProjectID", typeof(int));
+
+            return usp_getProjectMilestoneTask_Result
+               .FromSql("EXECUTE usp_getProjectMilestoneTask @CompanyId, @ProjectID", companyIdParameter, projectIDParameter)
+               .AsNoTracking();
+        }
+              
+        public virtual IQueryable<GetPrediccessorTask_Result> GetPrediccessorTask(Nullable<int> projectID, Nullable<int> parentTaskID, Nullable<int> taskTYpeID)
+        {
+            var projectIDParameter = projectID.HasValue ?
+                new SqlParameter("ProjectID", projectID) :
+                new SqlParameter("ProjectID", typeof(int));
+
+            var parentTaskIDParameter = parentTaskID.HasValue ?
+                new SqlParameter("ParentTaskID", parentTaskID) :
+                new SqlParameter("ParentTaskID", typeof(int));
+
+            var taskTYpeIDParameter = taskTYpeID.HasValue ?
+                new SqlParameter("TaskTYpeID", taskTYpeID) :
+                new SqlParameter("TaskTYpeID", typeof(int));
+
+            return GetPrediccessorTask_Result
+               .FromSql("EXECUTE GetPrediccessorTask @ProjectID, @ParentTaskID,@TaskTYpeID", projectIDParameter, parentTaskIDParameter, taskTYpeIDParameter)
+               .AsNoTracking();
+        }
+
+        
+        public virtual IQueryable<usp_getDeliverableTaskByUserID_Result> usp_getDeliverableTaskByUserID(string userID, Nullable<int> taskAssignedStatusID, Nullable<int> deliverablelst)
+        {
+            var userIDParameter = userID != null ?
+                new SqlParameter("UserID", userID) :
+                new SqlParameter("UserID", typeof(string));
+
+            var taskAssignedStatusIDParameter = taskAssignedStatusID.HasValue ?
+                new SqlParameter("TaskAssignedStatusID", taskAssignedStatusID) :
+                new SqlParameter("TaskAssignedStatusID", typeof(int));
+
+            var deliverablelstParameter = deliverablelst.HasValue ?
+                new SqlParameter("Deliverablelst", deliverablelst) :
+                new SqlParameter("Deliverablelst", typeof(int));
+
+            return usp_getDeliverableTaskByUserID_Result
+              .FromSql("EXECUTE usp_getDeliverableTaskByUserID @UserID, @TaskAssignedStatusID,@Deliverablelst", userIDParameter, taskAssignedStatusIDParameter, deliverablelstParameter)
+              .AsNoTracking();
+        }
+
+        
+        public virtual IQueryable<usp_getTaskTypeWiseProgressByTaskID_Result> usp_getTaskTypeWiseProgressByTaskID(Nullable<int> taskID, Nullable<int> statusID)
+        {
+            var taskIDParameter = taskID.HasValue ?
+                new SqlParameter("TaskID", taskID) :
+                new SqlParameter("TaskID", typeof(int));
+
+            var statusIDParameter = statusID.HasValue ?
+                new SqlParameter("StatusID", statusID) :
+                new SqlParameter("StatusID", typeof(int));
+
+            return usp_getTaskTypeWiseProgressByTaskID_Result
+             .FromSql("EXECUTE usp_getTaskTypeWiseProgressByTaskID @TaskID, @StatusID", taskIDParameter, statusIDParameter)
+             .AsNoTracking();
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         public virtual IQueryable<usp_getUserList_Result> usp_getUserList(Nullable<int> userId, Nullable<int> projectid, Nullable<int> companyId)
@@ -63,13 +217,15 @@ namespace DataAccessLibrary
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>().ToTable("Users");
-            modelBuilder.Entity<Project>().ToTable("Project");
+            modelBuilder.Entity<Project>().ToTable("Projects");
             modelBuilder.Entity<ProjectsAdmin>().ToTable("ProjectsAdmin");
             modelBuilder.Entity<ProjectTypes>().ToTable("ProjectType");
             modelBuilder.Entity<ProjectStatu>().ToTable("ProjectStatus");
             modelBuilder.Entity<Priority>().ToTable("Priority");
             modelBuilder.Entity<Currency>().ToTable("Currency");
             modelBuilder.Entity<Role>().ToTable("Role");
+            modelBuilder.Entity<ExUsers>().ToTable("ExUsers");
+            modelBuilder.Entity<NormSet>().ToTable("NormSet");
             modelBuilder.Entity<SimilarProject>().ToTable("SimilarProject");
             modelBuilder.Entity<Designation>().ToTable("Designation");
             modelBuilder.Entity<Department>().ToTable("Department");

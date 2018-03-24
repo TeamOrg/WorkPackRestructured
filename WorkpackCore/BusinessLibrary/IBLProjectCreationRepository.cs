@@ -17,7 +17,7 @@ namespace BusinessLibrary
         string DeleteProjectEstimationTasksDetail(int ProjectID, string MasterTaskType = "1");
         bool GenerateResourceRequest(int projectID);
         void GenerateResourceRequest(int ProjectID, string ProjectStatusFlag, int TaskStatusID, int UserID);
-        IList<Project> GetAllProject();
+        IList<Project> GetAllProject(int companyId);
         List<object> GetAllProjectCode(int ProjectStatusArchived);
         List<object> GetAllProjectCodeArchived(int ProjectStatusArchived);
         List<object> GetAllProjectCostReport(int ProjectID, string groupby, string distribution);
