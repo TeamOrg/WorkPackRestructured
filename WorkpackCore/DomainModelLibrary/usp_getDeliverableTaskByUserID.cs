@@ -1,12 +1,12 @@
-﻿
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace DomainModelLibrary
 {
-   
     using System;
     using System.ComponentModel.DataAnnotations;
-    public partial class usp_getDeliverableTaskByUserID_Result
-
+    public partial class usp_getDeliverableTaskByUserID
     {
         public string TaskOwner { get; set; }
         public int ProjectTaskID { get; set; }
@@ -41,5 +41,6 @@ namespace DomainModelLibrary
         public string DeliverableNo { get; set; }
         public Nullable<int> TaskNo { get; set; }
         public Nullable<System.DateTime> TaskcancelledDate { get; set; }
+
     }
 }

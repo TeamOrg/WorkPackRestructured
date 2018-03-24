@@ -11,20 +11,21 @@ namespace DomainModelLibrary
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Project
     {
         public Project()
         {
-            this.ProjectDocuments = new HashSet<ProjectDocument>();
-            this.ProjectsAdmins = new HashSet<ProjectsAdmin>();
-            this.ProjectsDepartments = new HashSet<ProjectsDepartment>();
-            this.ProjectWBS = new HashSet<ProjectWB>();
-            this.ResourceRequests = new HashSet<ResourceRequest>();
-            this.SimilarProjects = new HashSet<SimilarProject>();
-            this.ProjectMilestones = new HashSet<ProjectMilestone>();
+            //this.ProjectDocuments = new HashSet<ProjectDocument>();
+            //this.ProjectsAdmins = new HashSet<ProjectsAdmin>();
+            //this.ProjectsDepartments = new HashSet<ProjectsDepartment>();
+            //this.ProjectWBS = new HashSet<ProjectWB>();
+            //this.ResourceRequests = new HashSet<ResourceRequest>();
+            //this.SimilarProjects = new HashSet<SimilarProject>();
+            //this.ProjectMilestones = new HashSet<ProjectMilestone>();
         }
-    
+        [Key]
         public int ProjectID { get; set; }
         public Nullable<int> ProjectType { get; set; }
         public string ProjectCode { get; set; }
@@ -58,13 +59,13 @@ namespace DomainModelLibrary
         public string Location { get; set; }
         public Nullable<decimal> ProjectCapacity { get; set; }
     
-        public virtual ICollection<ProjectDocument> ProjectDocuments { get; set; }
-        public virtual ICollection<ProjectsAdmin> ProjectsAdmins { get; set; }
-        public virtual ICollection<ProjectsDepartment> ProjectsDepartments { get; set; }
-        public virtual ICollection<ProjectWB> ProjectWBS { get; set; }
-        public virtual ICollection<ResourceRequest> ResourceRequests { get; set; }
-        public virtual ICollection<SimilarProject> SimilarProjects { get; set; }
-        public virtual Company Company { get; set; }
-        public virtual ICollection<ProjectMilestone> ProjectMilestones { get; set; }
+        //public virtual ICollection<ProjectDocument> ProjectDocuments { get; set; }
+        //public virtual ICollection<ProjectsAdmin> ProjectsAdmins { get; set; }
+        //public virtual ICollection<ProjectsDepartment> ProjectsDepartments { get; set; }
+        //public virtual ICollection<ProjectWB> ProjectWBS { get; set; }
+        //public virtual ICollection<ResourceRequest> ResourceRequests { get; set; }
+        //public virtual ICollection<SimilarProject> SimilarProjects { get; set; }
+        //public virtual Company Company { get; set; }
+        //public virtual ICollection<ProjectMilestone> ProjectMilestones { get; set; }
     }
 }

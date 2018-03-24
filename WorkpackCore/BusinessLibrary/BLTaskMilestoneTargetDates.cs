@@ -116,13 +116,10 @@ namespace BusinessLibrary
 
         public List<usp_getTaskTypeWiseProgressByTaskID_Result> getTaskTypeWiseProgressByTaskID(int TaskId, int filestatusID)
         {
-            List<usp_getTaskTypeWiseProgressByTaskID_Result> lst = null;
-            //using (var context = new Cubicle_EntityEntities())
-            //{
-            //    int FileStatusID = Convert.ToInt32(Common.FileStatusID.Approved);
-            //    lst = context.usp_getTaskTypeWiseProgressByTaskID(TaskId, FileStatusID).ToList<usp_getTaskTypeWiseProgressByTaskID_Result>();
-                return lst;
-            //}
+            List<usp_getTaskTypeWiseProgressByTaskID_Result> lst = null;           
+            int FileStatusID = Convert.ToInt32(CommonLibrary.FileStatusID.Approved);
+            lst = _context.usp_getTaskTypeWiseProgressByTaskID(TaskId, FileStatusID).ToList<usp_getTaskTypeWiseProgressByTaskID_Result>();
+            return lst;           
         }
 
         public TaskMilestoneTargetDate GetAllTaskMilestoneTargetDateByDeliverableIDAndMilestoneID(int DeliverableID, int MilestoneID)

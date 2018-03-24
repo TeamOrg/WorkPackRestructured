@@ -979,7 +979,7 @@ namespace DomainModelLibrary
     }
 
    
-    public partial class ExUser : IEntity
+    public partial class ExUsers : IEntity
     {
         [NotMapped]
         public EntityState EntityState { get; set; }
@@ -1311,9 +1311,6 @@ namespace DomainModelLibrary
     {
     }
    
-    public partial class usp_getDeliverableTaskByUserID_Result
-    {
-    }
    
     public partial class usp_getViewTargetMilestone_Result
     {

@@ -1,4 +1,4 @@
-﻿import { Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Actions, Effect } from '@ngrx/effects';
 import { Action } from './../reducers/action.interface';
 import { Observable } from 'rxjs/Observable';
@@ -8,19 +8,20 @@ import { ExUser } from './../models/exUser';
 
 @Injectable()
 export class ExUserEffects {
-    constructor(private actions$: Actions,
-        private exUserService: ExUserService) { }
+  constructor(private actions$: Actions,
+    private exUserService: ExUserService) { }
 
-    @Effect()
-    get_all_exUser$: Observable<Action> = this.actions$
-        .ofType(exUserAction.ActionTypes.GET_ALL_EXUSER)
-        .switchMap((action: Action) => {
-            return this.exUserService.getAllExUser();
-        })
-        .map((data) => {
-            var exUesr = data as ExUser[];
-            return new exUserAction.GetAllExUserSuccessAction(exUesr);
-        });
+  @Effect()
+  get_all_exUser$: Observable<Action> = this.actions$
+    .ofType(exUserAction.ActionTypes.GET_ALL_EXUSER)
+    .switchMap((action: Action) => {
+      return this.exUserService.list();
+    })
+      .map((data) => {
+        debugger;
+      var exUesr = data as ExUser[];
+      return new exUserAction.GetAllExUserSuccessAction(exUesr);
+    });
 
 
 }

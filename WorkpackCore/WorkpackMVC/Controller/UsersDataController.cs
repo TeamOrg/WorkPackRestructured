@@ -38,6 +38,16 @@ namespace WorkpackMVC
       return ul;
     }
 
+    [HttpGet]
+    [ActionName("GetUsersForProjectsAdminAndMembers")]
+    public IEnumerable<Object> GetUsersForProjectsAdminAndMembers()
+    {
+      var identity = (ClaimsIdentity)User.Identity;
+      string CompanyId = identity.FindFirst("CompanyId").Value;
+      List<DropdownData> ul = _userRepository.GetUsersForProjectsAdminAndMembers(Convert.ToInt32(CompanyId));
+      return ul;
+    }
+
     // GET api/values/5
     [HttpGet("{id}")]
     public string Get(int id)

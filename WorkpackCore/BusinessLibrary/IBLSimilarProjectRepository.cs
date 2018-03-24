@@ -7,7 +7,7 @@ namespace BusinessLibrary
     public interface IBLSimilarProjectRepository
     {
         void AddSimilarProject(params SimilarProject[] similarProjects);
-        IList<SimilarProject> GetAllSimilarProject();
+        IList<SimilarProject> GetAllSimilarProject(int companyId);
         SimilarProject GetSimilarProjectByID(int similarProjectID);
         List<ListItem> GetSimilarProjectByProjectID(int ProjectID);
         List<ListItem> GetSimilarProjectRecursiveByProjectID(int ProjectID);

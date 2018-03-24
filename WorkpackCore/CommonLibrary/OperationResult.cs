@@ -13,4 +13,5 @@ namespace CommonLibrary
         public List<Dictionary<string, string>> lstDict = new List<Dictionary<string, string>>();
         public object data;
     }
+
 }

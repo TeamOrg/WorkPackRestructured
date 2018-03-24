@@ -93,6 +93,7 @@ export const getOperationResult = compose(fromUserReducer.getOperationResult, ge
 export const getToken = compose(fromUserReducer.getToken, getUserState);
 export const getNotification = compose(fromUserReducer.getNotification, getUserState);
 export const getAllUsers = compose(fromUserReducer.getAllUsers, getUserState);
+export const getUsersForProjectAdminAndProjectMember = compose(fromUserReducer.getUsersForProjectAdminAndProjectMember, getUserState);
 
 // =============== department states and compose methods ===============================================
 

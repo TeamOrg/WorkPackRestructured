@@ -16,10 +16,9 @@ namespace BusinessLibrary
             _context = context;
             _NormSetRepository = NormSetRepository;
         }
-        public IList<NormSet> GetAllNormSet()
+        public IList<NormSet> GetAllNormSet(int companyId)
         {
-            int CompanyID = 0;// HttpContext.Current.Session["CompanyId"];
-            return _NormSetRepository.GetAll().Where(c => c.CompanyId == Convert.ToInt32(CompanyID)).ToList<NormSet>();
+            return _NormSetRepository.GetAll().Where(c => c.CompanyId == companyId).ToList<NormSet>();
         }
         public NormSet GetNormSetByID(Int32 NormSetID)
         {

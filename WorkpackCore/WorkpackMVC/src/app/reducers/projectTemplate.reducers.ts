@@ -1,10 +1,10 @@
-﻿import { Action } from './action.interface';
+import { Action } from './action.interface';
 import { Observable } from 'rxjs/Observable';
 import { ActionTypes as projectTemplateActions } from './../actions/projectTemplate.actions';
-import { ProjectTemplate } from './../models/projectTemplate';
+import { NormSet } from './../models/projectTemplate';
 
 export interface State {
-    projectTemplates: ProjectTemplate[]
+    projectTemplates: NormSet[]
 }
 
 const initialState = {
@@ -25,6 +25,6 @@ export function reducer(state = initialState, action: Action): State {
 
 // ============================ exporter function ==============================
 
-export function getAllProjectTemplates(state: State): ProjectTemplate[] {
+export function getAllProjectTemplates(state: State): NormSet[] {
     return state.projectTemplates;
 }

@@ -9,24 +9,24 @@ namespace BusinessLibrary
     public class BLExUsersRepository : IBLExUsersRepository
     {
         private readonly WorkpackDBContext _context;
-        private readonly IGenericDataRepository<ExUser> _exUsers;
+        private readonly IGenericDataRepository<ExUsers> _exUsers;
 
-        public BLExUsersRepository(WorkpackDBContext context, IGenericDataRepository<ExUser> exUsers)
+        public BLExUsersRepository(WorkpackDBContext context, IGenericDataRepository<ExUsers> exUsers)
         {
             _context = context;
             _exUsers = exUsers;
         }
 
 
-        public IList<ExUser> GetAllExUsers()
+        public IList<ExUsers> GetAllExUsers(int companyId)
         {
-            return _exUsers.GetAll();//.Where(a=>a.CompanyId==Convert.ToInt32(HttpContext.Current.Session["CompanyId"])).ToList();
+            return (from q in _context.ExUser where q.CompanyId== companyId select q).ToList();
         }
-        public ExUser GetExUsersByID(int ExUsersID)
+        public ExUsers GetExUsersByID(int ExUsersID)
         {
             return _exUsers.GetSingle(d => d.ExUserID == ExUsersID);
         }
-        public void AddExUsers(params ExUser[] ExUsers)
+        public void AddExUsers(params ExUsers[] ExUsers)
         {
             try
             {
@@ -38,7 +38,7 @@ namespace BusinessLibrary
                 throw new Exception("Record not added.");
             }
         }
-        public void UpdateExUsers(params ExUser[] ExUsers)
+        public void UpdateExUsers(params ExUsers[] ExUsers)
         {
             try
             {
@@ -50,7 +50,7 @@ namespace BusinessLibrary
                 throw new Exception("Record not updated.");
             }
         }
-        public void RemoveExUsers(params ExUser[] ExUsers)
+        public void RemoveExUsers(params ExUsers[] ExUsers)
         {
             try
             {

@@ -18,15 +18,10 @@ namespace BusinessLibrary
             _context = context;
             _projectCreation = projectCreation;
         }
-
-
-
-
-
-
-        public IList<Project> GetAllProject()
+        
+        public IList<Project> GetAllProject(int companyId)
         {
-            return _projectCreation.GetAll();
+            return (from q in _context.Projects where q.CompanyId == companyId select q).ToList();
         }
         public static IList<Project> GetAllOnGoingProjects()
         {
@@ -245,10 +240,9 @@ namespace BusinessLibrary
             try
             {
                
-                //using (var db = new Cubicle_EntityEntities())
-                //{
-                //    list = db.Projects.Where(c => c.ProjectStatus == status && (c.SysGen == null||c.SysGen.ToLower() == "dummy")).Select(a => a.ProjectID).ToList<int>();
-                //}
+             
+                  list = _context.Projects.Where(c => c.ProjectStatus == status && (c.SysGen == null||c.SysGen.ToLower() == "dummy")).Select(a => a.ProjectID).ToList<int>();
+               
 
             }
             catch (Exception ex)
@@ -681,25 +675,24 @@ namespace BusinessLibrary
 
         public List<usp_searchUserProject_Result> searchUserProject(Project project, Int32 UserID, int ProjectStatusArchived)
         {
-           // int ProjectStatusOnGoing = Convert.ToInt32(Common.ProjectStatus.OnGoing); 
+            int ProjectStatusOnGoing = Convert.ToInt32(CommonLibrary.ProjectStatus.OnGoing);
             List<usp_searchUserProject_Result> lst = null;
-             List<usp_searchUserProject_Result> list = null;
+            List<usp_searchUserProject_Result> list = null;
             try
             {
-                //using (var context = new Cubicle_EntityEntities())
-                //{
-                //    lst = context.usp_searchUserProject(project.ProjectType, project.ProjectStage, Convert.ToInt32(project.ProjectCode),
-                //                                        project.ClientProjectNo, project.ClientAssetID, Convert.ToInt32(project.ProjectStatus), project.ProjectStartDate,
-                //                                        project.ProjectEndDate, project.ProjectLeader, UserID, ProjectStatusArchived).ToList<usp_searchUserProject_Result>();
+                
+                    lst = _context.usp_searchUserProject(project.ProjectType, project.ProjectStage, Convert.ToInt32(project.ProjectCode),
+                                                        project.ClientProjectNo, project.ClientAssetID, Convert.ToInt32(project.ProjectStatus), project.ProjectStartDate,
+                                                        project.ProjectEndDate, project.ProjectLeader, UserID, ProjectStatusArchived).ToList<usp_searchUserProject_Result>();
 
 
-                //    list = lst.Where(a => a.ProjectStatus == Convert.ToString(ProjectStatusOnGoing)).ToList<usp_searchUserProject_Result>();
-                   
-                //}
+                    list = lst.Where(a => a.ProjectStatus == Convert.ToString(ProjectStatusOnGoing)).ToList<usp_searchUserProject_Result>();
+
+                
             }
             catch (Exception ex)
             {
-                //bool false = BusinessLogicExceptionHandler.HandleException(ref ex);
+                //bool rethrow = BusinessLogicExceptionHandler.HandleException(ref ex);
                 throw ex;
             }
             return list;

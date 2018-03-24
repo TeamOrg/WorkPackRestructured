@@ -92,8 +92,11 @@ namespace Workpack
       services.AddScoped<IBLDepartmentRepository, BLDepartmentRepository>();
       services.AddScoped<IBLEmailTemplateRepository, BLEmailTemplateRepository>();
       services.AddScoped<IBLEstimationTaskDetailRepository, BLEstimationTaskDetailRepository>();
+      services.AddScoped<IBLExUsersRepository, BLExUsersRepository>();
+      services.AddScoped<IBLNormSetRepository, BLNormSetRepository>();
       services.AddScoped<IBLPriorityRepository, BLPriorityRepository>();
       services.AddScoped<IBLProjectsAdminRepository, BLProjectsAdminRepository>();
+      services.AddScoped<IBLProjectCreationRepository, BLProjectCreationRepository>();
       services.AddScoped<IBLProjectStatusRepository, BLProjectStatusRepository>();
       services.AddScoped<IBLProjectTypeRepository, BLProjectTypeRepository>();
       services.AddScoped<IBLRoleRepository, BLRoleRepository>();

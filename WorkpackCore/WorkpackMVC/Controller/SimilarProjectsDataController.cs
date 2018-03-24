@@ -28,7 +28,7 @@ namespace WorkpackMVC
       var identity = (ClaimsIdentity)User.Identity;
       string userId = identity.FindFirst("UserId").Value;
       string CompanyId = identity.FindFirst("CompanyId").Value;
-      return _similarProjectsRepository.GetAllSimilarProject();
+      return _similarProjectsRepository.GetAllSimilarProject(Convert.ToInt32(CompanyId));
     }
 
     [HttpPost]

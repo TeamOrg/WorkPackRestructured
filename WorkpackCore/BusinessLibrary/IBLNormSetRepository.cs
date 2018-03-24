@@ -8,7 +8,7 @@ namespace BusinessLibrary
         void AddNormSet(params NormSet[] NormSet);
         int checkDuplicateNormName(string NormSetName, int NormSetID, int CompanyID);
         bool deleteNormSet(int NormID);
-        IList<NormSet> GetAllNormSet();
+        IList<NormSet> GetAllNormSet(int companyId);
         List<usp_getNormSetData_Result> GetAllNormSetData(int CompanyID);
         int GetDefaultCompanyNorm(string ClientName);
         List<NormSet> getMappingNormSetByNormSetID(int CompanyNormSetID, int projectID);

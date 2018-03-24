@@ -14,7 +14,8 @@ export interface State {
   isLoading: boolean;
   OperationResult: any;
   notification: Notification[];
-  users: User[]  // All company users
+  users: User[];  // All company users
+  UsersForProjectAdminAndProjectMember: any[]
 }
 
 const initialState = {
@@ -24,7 +25,8 @@ const initialState = {
   isLoading: false,
   OperationResult: {},
   notification: [],
-  users: []
+  users: [],
+  UsersForProjectAdminAndProjectMember: []
 };
 
 export function reducer(state = initialState, action: Action): State {
@@ -64,6 +66,14 @@ export function reducer(state = initialState, action: Action): State {
     case userActions.GET_ALL_USERS_SUCCESS: {
       return Object.assign({}, state, {
         users: action.payload,
+        OperationResult: {},
+        isLoading: false
+      })
+    }
+    case userActions.GET_USERS_PROJECTADMIN_PROJECTMEMBER_SUCCESS: {
+      debugger;
+      return Object.assign({}, state, {
+        UsersForProjectAdminAndProjectMember: action.payload,
         OperationResult: {},
         isLoading: false
       })
@@ -108,6 +118,10 @@ export function getNotification(state: State): Notification[] {
 
 export function getAllUsers(state: State): User[] {
   return state.users;
+}
+
+export function getUsersForProjectAdminAndProjectMember(state: State): any[] {
+  return state.UsersForProjectAdminAndProjectMember;
 }
 
 export function getLoggedInUserId(state: State): string {
